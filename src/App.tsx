@@ -1,8 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
+  const handleClick = async () => {
+    console.log("click");
+    const response = await fetch("/login");
+    console.log(response);
+    const result = await response.json();
+    console.log(result);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +26,7 @@ function App() {
         >
           Learn React
         </a>
+        <button onClick={handleClick}>Fetch some data...</button>
       </header>
     </div>
   );
